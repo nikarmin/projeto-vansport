@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import './CrudAluno.css';
+import './Cadastro.css'
 import Main from '../template/Main';
 
-const title = "Cadastro";
+const title = "CADASTRO";
 
 // Arrumar isso para o BD de Motorista/Cliente
 const urlAPI = "http://localhost:5233/api/aluno";
@@ -24,19 +24,26 @@ export default class Cadastro extends Component {
     renderTable()
     {
         return (
-            <div className="listagem">
-                <table className="listaAlunos" id="tblListaAlunos">
-                    <thead>
-                        <tr className="cabecTabela">
-                            <th className="tabTituloRa">Ra</th>
-                            <th className="tabTituloNome">Nome</th>
-                            <th className="tabTituloCurso">Curso</th>
-                        </tr>
-                    </thead>
+            <div className="box">
+                <form className="box-cadastro">
+                    
+                        <label>Nome do motorista: </label><br></br>
+                        <input type="text" name="uname" required></input> <br></br>
 
+                        <label>Email:</label><br></br>
+                        <input type="text" name="uemail" required></input><br></br>
+
+                        <label>CPF:</label> <br></br>
+                        <input type="text" name="ucpf" required></input><br></br>
+
+                        <label>Senha:</label><br></br>
+                        <input type="text" name="upassword" required></input> <br></br>
+
+                        <input type="file" id="myFile" name="filename"></input> <br></br>
+                        <input type="submit"></input>
             
-        </table>
-    </div>
+                </form>
+            </div>
     )
     }
     render() {
