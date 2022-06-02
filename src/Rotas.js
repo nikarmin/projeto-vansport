@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 import Main from './components/template/Main';
 import CrudAluno from './components/CrudAluno/CrudAluno';
 import Cadastro from './components/Cadastro/Cadastro';
+import Login from "./components/Login/Login";
 
 export default function Rotas() {
     return (
@@ -15,6 +16,7 @@ export default function Rotas() {
                     </Main> }
                 />
                 <Route path='/cadastro' element={<Cadastro />} />
+                <Route path='/login' element={<Login />} />
             <Route from='*' to='/' />
         </Routes>
     )

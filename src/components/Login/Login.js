@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
-import './Cadastro.css';
+import './Login.css';
 import Main from '../template/Main';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-const title = "Cadastro";
+const title = "Login";
 
 // Arrumar isso para o BD de Motorista/Cliente
 const urlAPI = "http://localhost:5233/api/aluno";
@@ -20,11 +20,11 @@ const initialState = {
     ];*/
 
 
-export default class Cadastro extends Component {
+export default class Login extends Component {
     state = {...initialState}
 
     makeAnimation() {
-        const box = document.getElementsByClassName('box');
+        const box = document.getElementsByClassName('box-login');
         
         console.log(box[0].classList.add('withCircle'))
     }
@@ -32,7 +32,7 @@ export default class Cadastro extends Component {
     renderTable()
     {
         return (
-            <div className="box" onMouseEnter={this.makeAnimation}>
+            <div className="box-login" onMouseEnter={this.makeAnimation}>
                 <form className="box-cadastro">
 
                         <label>Nome do motorista: </label>
@@ -89,22 +89,6 @@ export default class Cadastro extends Component {
                         name="unumero"
                         required
                         placeholder="(xx) xxxxx-xxxx"
-                        />
-
-                        <label>Endereço:</label>
-                        <input
-                        type="text"
-                        name="uendereco"
-                        required
-                        placeholder="Seu endereço..."
-                        />
-
-                        <label>Sexo:</label>
-                        <input
-                        type="text"
-                        name="usexo"
-                        required
-                        placeholder="Sexo (trocar p select)..."
                         />
 
                         <label>Coloque sua foto (3x4)</label>

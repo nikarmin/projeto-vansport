@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Manrope:wght@200&family=Roboto+Condensed:wght@300&display=swap');
 
-.box {
+.box-login {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -10,11 +10,11 @@
     transition: all 1s;
 }
 
-.box.withCircle{
-    border-top-left-radius: 650px 850px;
-    border-top-right-radius: 1090px 850px;
-    border-bottom-left-radius: 850px 850px;
-    border-bottom-right-radius: 750px 850px;
+.box-login.withCircle{
+    border-top-left-radius: 850px 850px;
+    border-top-right-radius: 776px 850px;
+    border-bottom-left-radius: 1045px 850px;
+    border-bottom-right-radius: 676px 850px;
     background-color: #F2AC57;
 }
 

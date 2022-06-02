@@ -43,7 +43,7 @@ nav.menu {
     transition: transform 0.25s ease-out;
 }
 
-  .menu a:hover::after{
+.menu a:hover::after{
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
+}

@@ -18,6 +18,10 @@
     color: white;
 }
 
+.App-header:hover{
+    background-color: blue;
+}
+
 :root {
     --logo-width: 200px;
     --content-header-height: 60px;

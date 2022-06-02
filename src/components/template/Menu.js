@@ -1,10 +1,6 @@
 import './Menu.css'
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-
-//                 <FontAwesomeIcon icon={faMagnifyingGlass}/>
 
 export default function Menu(props) {
     return (
