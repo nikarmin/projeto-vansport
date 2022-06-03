@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { useState } from 'react';
 import './Login.css';
 import Main from '../template/Main';
@@ -8,7 +8,7 @@ const title = "Login";
 // Arrumar isso para o BD de Motorista/Cliente
 const urlAPI = "http://localhost:5233/api/aluno";
 const initialState = {
-    aluno: { id: 0, ra: '', nome:'', codCurso: 0},
+    aluno: { id: 0, ra: '', nome: '', codCurso: 0 },
     lista: []
 }
 
@@ -21,86 +21,40 @@ const initialState = {
 
 
 export default class Login extends Component {
-    state = {...initialState}
+    state = { ...initialState }
 
     makeAnimation() {
         const box = document.getElementsByClassName('box-login');
-        
+
         console.log(box[0].classList.add('withCircle'))
     }
 
-    renderTable()
-    {
+    renderTable() {
         return (
             <div className="box-login" onMouseEnter={this.makeAnimation}>
                 <form className="box-cadastro">
 
-                        <label>Nome do motorista: </label>
-                        <input
-                        type="text"
-                        name="uname"
-                        required
-                        placeholder="Nome do motorista"
-                        />
-
-                        <label className="email">Email:</label>
-                        <input
+                    <label className="email">Email:</label>
+                    <input
                         type="text"
                         name="uemail"
                         required
                         placeholder="Digite seu email"
-                        />
+                    />
 
-                        <label>CPF:</label>
-                        <input
-                        type="text"
-                        name="ucpf"
-                        required
-                        placeholder="000.000.000-00"
-                        />
-
-                        <label>Senha:</label>
-                        <input
+                    <label>Senha:</label>
+                    <input
                         type="text"
                         name="upassword"
                         required
                         placeholder="Digite sua senha"
-                        />
+                    />
 
-                        <label>Estado:</label>
-                        <input
-                        type="text"
-                        name="uestado"
-                        required
-                        placeholder="Estado (um select aq)"
-                        />
-
-                        <label>Cidade:</label>
-                        <input
-                        type="text"
-                        name="ucidade"
-                        required
-                        placeholder="Cidade (um select aq)"
-                        />
-
-                        <label>Número de celular:</label>
-                        <input
-                        type="text"
-                        name="unumero"
-                        required
-                        placeholder="(xx) xxxxx-xxxx"
-                        />
-
-                        <label>Coloque sua foto (3x4)</label>
-                        
-                        <label for="files" class="upload-button">Select Image</label>
-                        <input id="files" hidden type="file" accept="image/*"/>
-
-                        <input type="submit"></input>
+                    <input type="submit"></input>
 
                 </form>
             </div>
-    )
+        )
     }
     render() {
         return (
