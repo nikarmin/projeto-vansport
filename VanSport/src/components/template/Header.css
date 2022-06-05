@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Staatliches&display=swap');
+
+.header{
+    font-size: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+h1{
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
