@@ -7,7 +7,8 @@ import Main from '../template/Main';
 const title = "Cadastro";
 
 // Arrumar isso para o BD de Motorista/Cliente
-const urlAPI = "http://localhost:5233/api/cadastro";
+const urlAPI = "https://localhost:7082/api/cidade";      // perguntar tal coisa
+const urlDEPRESSIVA = "https://localhost:7082/api/sexo";
 
 const initialState = {
     motorista: { idMotorista: 0, cpf: '', email: '', senha:'', nome: '', 
@@ -19,6 +20,10 @@ const initialState = {
                  idCidade: 0, idTurno: 0, idSexo: 0},
 
     turno:     { idTurno: 0, nomeTurno: ''},
+
+    cidade:    { idCidade: 0, nome: ''},
+
+    sexo:      { idSexo: 0, sexo: ''},
 
     lista: []
 }
@@ -37,13 +42,19 @@ export default class Cadastro extends Component {
     componentDidMount() {
         axios(urlAPI).then(resp => {
             this.setState({ lista: resp.data })
-        })
+        });
+
+        axios(urlDEPRESSIVA).then(resp => {
+            this.setState({ lista: resp.data })
+        });
     }
 
     limpar(){
         this.setState({ cliente : initialState.cliente,
                         motorista : initialState.motorista,
-                        turno : initialState.turno});
+                        turno : initialState.turno,
+                        cidade : initialState.cidade,
+                        sexo : initialState.sexo});
     }
 
     salvar() {
@@ -56,7 +67,9 @@ export default class Cadastro extends Component {
             const lista = this.getListaAtualizada(resp.data)
             this.setState({ cliente : initialState.cliente,
                             motorista : initialState.motorista,
-                            turno : initialState.turno})
+                            turno : initialState.turno,
+                            cidade : initialState.cidade,
+                            sexo : initialState.sexo})
         }).catch(console.log(Error))
     }
 
@@ -66,7 +79,7 @@ export default class Cadastro extends Component {
         console.log(box[0].classList.add('withCircle'))
     }
 
-    renderTable()
+    renderForm()
     {
         return (
             <div className="box" onMouseEnter={this.makeAnimation}>
@@ -104,21 +117,12 @@ export default class Cadastro extends Component {
                         placeholder="Digite sua senha"
                         />
 
-                        <label>Estado:</label>
-                        <input
-                        type="text"
-                        name="uestado"
-                        required
-                        placeholder="Estado (um select aq)"
-                        />
-
                         <label>Cidade:</label>
-                        <input
-                        type="text"
-                        name="ucidade"
-                        required
-                        placeholder="Cidade (um select aq)"
-                        />
+                        <select>
+                            {this.state.lista.map((cidade) =>
+                                <option>{cidade.nome}</option>
+                            )}
+                        </select>
 
                         <label>Número de celular:</label>
                         <input
@@ -137,19 +141,18 @@ export default class Cadastro extends Component {
                         />
 
                         <label>Sexo:</label>
-                        <input
-                        type="text"
-                        name="usexo"
-                        required
-                        placeholder="Sexo (trocar p select)..."
-                        />
+                        <select>
+                            {this.state.lista.map((sexo) =>
+                                <option>{sexo.sexo}</option>
+                            )}
+                        </select>
 
                         <label>Coloque sua foto (3x4)</label>
                         
-                        <label for="files" class="upload-button">Select Image</label>
+                        <label class="upload-button">Select Image</label>
                         <input id="files" hidden type="file" accept="image/*"/>
 
-                        <input type="submit"></input>
+                        <input type="submit" onClick={e => this.salvar(e)}></input>
 
                 </form>
             </div>
@@ -158,7 +161,7 @@ export default class Cadastro extends Component {
     render() {
         return (
             <Main title={title}>
-                {this.renderTable()}
+                {this.renderForm()}
             </Main>
         )
     }
