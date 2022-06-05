@@ -1968,11 +1968,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport_API\\VanSport_API.csproj",
+      "projectUniqueName": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\VanSport_API.csproj",
       "projectName": "VanSport_API",
-      "projectPath": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport_API\\VanSport_API.csproj",
+      "projectPath": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\VanSport_API.csproj",
       "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
-      "outputPath": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport_API\\obj\\",
+      "outputPath": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",

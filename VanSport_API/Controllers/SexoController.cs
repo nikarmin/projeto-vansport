@@ -10,24 +10,24 @@ namespace VanSport_API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ClienteController : Controller
+    public class SexoController : Controller
     {
         private readonly VanSportContext _context;
 
-        public ClienteController(VanSportContext context){
+        public SexoController(VanSportContext context){
             _context = context;
         }
 
         [HttpGet]
-        public ActionResult<List<Cliente>> GetAll() {
-            return _context.Cliente.ToList();
+        public ActionResult<List<Sexo>> GetAll() {
+            return _context.Sexo.ToList();
         }
 
-        [HttpGet("{ClienteId}")]
-        public ActionResult<List<Turno>> Get(int ClienteId){
+        [HttpGet("{SexoId}")]
+        public ActionResult<List<Sexo>> Get(int SexoId){
             try
             {
-                var result = _context.Cliente.Find(ClienteId);
+                var result = _context.Sexo.Find(SexoId);
                 if (result == null)
                 {
                     return NotFound();
@@ -41,14 +41,14 @@ namespace VanSport_API.Controllers
         }
         
         [HttpPost]
-        public async Task<ActionResult> post(Cliente model){
+        public async Task<ActionResult> post(Sexo model){
             try
             {
-                _context.Cliente.Add(model);
+                _context.Sexo.Add(model);
                 
                 if (await _context.SaveChangesAsync() == 1)
                 {
-                    return Created($"/api/cliente/{model.cpf}", model);
+                    return Created($"/api/sexo/{model.sexo}", model);
                 }
             }
             catch{
@@ -58,44 +58,34 @@ namespace VanSport_API.Controllers
             return BadRequest();
         }
 
-        [HttpPut("{ClienteId}")]
-        public async Task<ActionResult> put(int ClienteId, Cliente dadosClienteAlt){
+        [HttpPut("{SexoId}")]
+        public async Task<ActionResult> put(int SexoId, Sexo dadosSexoAlt){
             try{
-                var result = await _context.Cliente.FindAsync(ClienteId);
-                if (ClienteId != result.idCliente)
+                var result = await _context.Sexo.FindAsync(SexoId);
+                if (SexoId != result.idSexo)
                 {
                     return BadRequest();
                 }
-                result.cep = dadosClienteAlt.cep;
-                result.cpf = dadosClienteAlt.cpf;
-                result.email = dadosClienteAlt.email;
-                result.foto = dadosClienteAlt.foto;
-                result.nome = dadosClienteAlt.nome;
-                result.numero = dadosClienteAlt.numero;
-                result.numeroCelular = dadosClienteAlt.numeroCelular;
-                result.senha = dadosClienteAlt.senha;
-                result.idCidade = dadosClienteAlt.idCidade;
-                result.idSexo = dadosClienteAlt.idSexo;
-                result.idTurno = dadosClienteAlt.idTurno;
+                result.sexo = dadosSexoAlt.sexo;
                 await _context.SaveChangesAsync();
-                return Created($"/api/cliente/{dadosClienteAlt.cpf}", dadosClienteAlt);
+                return Created($"/api/sexo/{dadosSexoAlt.sexo}", dadosSexoAlt);
             }
             catch{
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no acesso ao banco de dados.");
             }
         }
 
-        [HttpDelete("{ClienteId}")]
-        public async Task<ActionResult> delete(int ClienteId){
+        [HttpDelete("{SexoId}")]
+        public async Task<ActionResult> delete(int SexoId){
             try{
-                var Cliente = await _context.Cliente.FindAsync(ClienteId);
+                var sexo = await _context.Sexo.FindAsync(SexoId);
                 
-                if(Cliente == null)
+                if(sexo == null)
                 {
                     return NotFound();
                 }
                 
-                _context.Remove(Cliente);
+                _context.Remove(sexo);
                 await _context.SaveChangesAsync();
                 return NoContent();
             }

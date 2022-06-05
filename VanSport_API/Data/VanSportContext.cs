@@ -14,5 +14,6 @@ namespace VanSport_API.Data
         public DbSet<Motorista> Motorista { get; set; }
         public DbSet<Sexo> Sexo { get; set; }
         public DbSet<Turno> Turno { get; set; }
+        public DbSet<Cidade> Cidade { get; set; }
     }
 }

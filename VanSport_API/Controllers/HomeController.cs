@@ -10,7 +10,7 @@ namespace VanSport_API.Controllers
         public IActionResult Inicio() {
             return new ContentResult {
                 ContentType = "text/html",
-                Content = "<h1> gay </h1>"
+                Content = "<h1> api ok </h1>"
             };
         }
     }
