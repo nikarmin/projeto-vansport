@@ -13,7 +13,7 @@ namespace VanSport_API.models
         public string numeroCelular { get; set; }
         public string? foto { get; set; }
         public string cep { get; set; }
-        public string numero { get; set; }
+        public string endereco { get; set; }
         public int idSexo { get; set; }
         public int idCidade { get; set; }
     }

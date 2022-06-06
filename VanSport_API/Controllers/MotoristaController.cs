@@ -71,7 +71,6 @@ namespace VanSport_API.Controllers
                 result.email = dadosMotoristaAlt.email;
                 result.foto = dadosMotoristaAlt.foto;
                 result.nome = dadosMotoristaAlt.nome;
-                result.numero = dadosMotoristaAlt.numero;
                 result.numeroCelular = dadosMotoristaAlt.numeroCelular;
                 result.senha = dadosMotoristaAlt.senha;
                 result.idCidade = dadosMotoristaAlt.idCidade;
