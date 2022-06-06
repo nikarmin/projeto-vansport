@@ -28,6 +28,16 @@ const initialState = {
     lista: []
 }
 
+const initialStateSex = {
+    sexo: { idSexo: 0, sexo: ''},
+    lista: []
+}
+
+const initialStateCity = {
+    cidade: { idCidade: 0, nome: ''},
+    lista: []
+}
+
 /*const Alunos = [
     { 'id': 1, 'ra': 11111, 'nome': 'André', 'codCurso': 19 },
     { 'id': 2, 'ra': 22222, 'nome': 'Amanda', 'codCurso': 28 },
@@ -37,15 +47,24 @@ const initialState = {
 
 
 export default class Cadastro extends Component {
-    state = {...initialState}
+    state = {
+        padrao: {...initialState},
+        city: {...initialStateCity},
+        sex: {...initialStateSex}
+    }
+    stateCity = {...initialStateCity}
+    stateSex = {...initialStateSex}
 
     componentDidMount() {
         axios(urlAPI).then(resp => {
-            this.setState({ lista: resp.data })
+            this.setState({padrao: { lista: resp.data }})
+            this.setState({city: { lista: resp.data }})
+            console.log(this.state.padrao, this.state.city)
         });
-
+        
         axios(urlDEPRESSIVA).then(resp => {
-            this.setState({ lista: resp.data })
+            this.setState({sex: { lista: resp.data }})
+            console.log( this.state.sex)
         });
     }
 
@@ -65,11 +84,11 @@ export default class Cadastro extends Component {
 
         axios[metodo](url, motorista).then(resp => {
             const lista = this.getListaAtualizada(resp.data)
-            this.setState({ cliente : initialState.cliente,
+            this.setState({padrao: { cliente : initialState.cliente,
                             motorista : initialState.motorista,
                             turno : initialState.turno,
                             cidade : initialState.cidade,
-                            sexo : initialState.sexo})
+                            sexo : initialState.sexo}})
         }).catch(console.log(Error))
     }
 
@@ -119,7 +138,7 @@ export default class Cadastro extends Component {
 
                         <label>Cidade:</label>
                         <select>
-                            {this.state.lista.map((cidade) =>
+                            {this.state.city.lista.map((cidade) =>
                                 <option>{cidade.nome}</option>
                             )}
                         </select>
@@ -142,7 +161,7 @@ export default class Cadastro extends Component {
 
                         <label>Sexo:</label>
                         <select>
-                            {this.state.lista.map((sexo) =>
+                            {this.state.sex.lista.map((sexo) =>
                                 <option>{sexo.sexo}</option>
                             )}
                         </select>
