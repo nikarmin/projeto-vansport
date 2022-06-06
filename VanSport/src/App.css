@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+    min-height: 100vh;
 }
 
 .App-logo {
@@ -26,6 +27,7 @@
     --logo-width: 200px;
     --content-header-height: 60px;
     --content-footer-height: 40px;
+    overflow-x: hidden;
 }
 
 body {
