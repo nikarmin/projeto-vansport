@@ -115,6 +115,39 @@ export default class Cadastro extends Component {
         box[0].classList.add('withCircle')
     }
 
+    fileUpload(e){
+        
+        const { files } = e.target;
+
+        console.log(files[0].name);
+
+        if(files[0].size <= 50000){
+            console.log("MEU DEUS MEU SENHRO")
+            const motorista = { ...this.state.motorista };
+
+            const reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+
+            reader.onload = () => {
+                const img = reader.result;
+                motorista.foto = img;
+                this.setState({ motorista })
+                console.log(this.state.motorista)
+            }
+        }
+        else{
+            alert('Imagem muito grande! papo')
+        }
+
+        /*let files = e.target.files;
+        let reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        this.state.motorista.foto = reader.onload;
+        reader.onload=(e)=>{
+            console.warn("img datra INDSAIUDB", e.target.result);
+        }*/
+    }
+
     renderForm() {
         return (
             <div className="box" onMouseEnter={this.makeAnimation}>
@@ -212,7 +245,7 @@ export default class Cadastro extends Component {
                         hidden
                         type="file"
                         accept="image/*"
-                        onChange={e => this.atualizaCampo(e)}
+                        onChange={e => this.fileUpload(e)}
                     />
 
                     <input type="submit" onClick={e => this.salvar(e)}></input>
