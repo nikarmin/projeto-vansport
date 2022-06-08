@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useState } from 'react';
+import { Route, Routes } from 'react-router';
 import './Cadastro.css';
 import axios from 'axios';
 import Main from '../template/Main';
@@ -96,10 +96,12 @@ export default class Cadastro extends Component {
                     motorista: motoristaInitialState,
                     turno: initialState.turno,
                     cidade: initialState.cidade,
-                    sexo: initialState.sexo
+                    sexo: initialState.sexo,
                 }, lista
             })
+
         }).catch(console.log(Error))
+
     }
 
     atualizaCampo(event) {
@@ -248,7 +250,10 @@ export default class Cadastro extends Component {
                         onChange={e => this.fileUpload(e)}
                     />
 
-                    <input type="submit" onClick={e => this.salvar(e)}></input>
+                    <input
+                    type="submit" 
+                    onClick={e => this.salvar(e) }
+                    />
 
                 </form>
             </div>

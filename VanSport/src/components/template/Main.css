@@ -11,3 +11,14 @@ main > div {
     justify-content: center;
     align-items: center;
 }
+
+/*
+ dpislay : flex;
+ flex-direction: column;
+*/
+/* @media only screen and (min-width: 600px){
+    main{
+        display : flex;
+        flex-direction: column;
+    }
+} */
