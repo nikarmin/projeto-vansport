@@ -3,13 +3,19 @@ import { Route, Routes } from 'react-router';
 import './Cadastro.css';
 import axios from 'axios';
 import Main from '../template/Main';
+import Switch from '@mui/material/Switch'
+import FormControlLabel from '@mui/material/FormControlLabel';
+import oyoAberto from '../../assets/imagens/eye.svg';
+import oyoFechado from '../../assets/imagens/eye-off.svg';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 const title = "Cadastro";
 
 // Arrumar isso para o BD de Motorista/Cliente
-const urlAPI = "https://localhost:7082/api/cidade";      // perguntar tal coisa
+const urlAPI = "https://localhost:7082/api/cidade";
 const urlDEPRESSIVA = "https://localhost:7082/api/sexo";
-const urlSocorro = "https://localhost:7082/api/motorista"
+const urlSocorro = "https://localhost:7082/api/motorista";
+const urlSuicido = "https://localhost:7082/api/cliente";
+const urlMaluquice = "https://localhost:7082/api/turno";
 
 const motoristaInitialState = {
     idMotorista: 0, cpf: '', email: '', senha: '', nome: '',
@@ -24,13 +30,13 @@ const initialState = {
         idCidade: 0, idTurno: 0, idSexo: 0
     },
 
-    turno: { idTurno: 0, nomeTurno: '' },
+    turno: { turno: { idTurno: 0, nomeTurno: '' }, lista: [] },
 
     cidade: { idCidade: 0, nome: '' },
 
     sexo: { idSexo: 0, sexo: '' },
 
-    lista: []
+    lista: [],
 }
 
 const initialStateSex = {
@@ -47,7 +53,10 @@ export default class Cadastro extends Component {
     state = {
         motorista: motoristaInitialState,
         city: { ...initialStateCity },
-        sex: { ...initialStateSex }
+        sex: { ...initialStateSex },
+        ehMotorista: false,
+        cliente: { ...initialState.cliente },
+        turno: { ...initialState.turno }
     }
 
     componentDidMount() {
@@ -59,6 +68,11 @@ export default class Cadastro extends Component {
         axios(urlDEPRESSIVA).then(resp => {
             this.setState({ sex: { lista: resp.data } })
         });
+
+        axios.get(urlMaluquice).then(resp => {
+            this.setState({ turno: {lista: resp.data} })
+            console.log(resp.data)
+        })
     }
 
     limpar() {
@@ -77,19 +91,31 @@ export default class Cadastro extends Component {
         return lista;
     }
 
+    mudarCadastro(e)
+    {
+        this.setState({ ehMotorista: !this.state.ehMotorista })
+    }
+
     salvar(e) {
         e.preventDefault();
-        const motorista = this.state.motorista;
-        console.log(motorista)
+        const novo = this.state[this.state.ehMotorista ? 'motorista' : 'cliente'];
+        console.log(novo)
 
-        motorista.idCidade = Number(motorista.idCidade)
-        motorista.idSexo = Number(motorista.idSexo)
-        motorista.idMotorista = Number(motorista.idMotorista)
-        const metodo = motorista.idMotorista ? 'put' : 'post';
-        const url = motorista.idMotorista ? `${urlSocorro}/${motorista.idMotorista}` : urlSocorro;
+        novo.idCidade = Number(novo.idCidade)
+        novo.idSexo = Number(novo.idSexo)
+        novo[this.state.ehMotorista ? 'idMotorista' : 'idCliente'] = Number(novo[this.state.ehMotorista ? 'idMotorista' : 'idCliente'])
 
-        axios[metodo](url, motorista).then(resp => {
+        if (!this.state.ehMotorista) {
+            novo.idTurno = Number(novo.idTurno);
+        }
+
+        console.log(novo)
+            
+        const url = this.state.ehMotorista ? urlSocorro : urlSuicido;
+
+        axios.post(url, novo).then(resp => {
             const lista = this.getListaAtualizada(resp.data)
+
             this.setState({
                 padrao: {
                     cliente: initialState.cliente,
@@ -99,16 +125,15 @@ export default class Cadastro extends Component {
                     sexo: initialState.sexo,
                 }, lista
             })
-
         }).catch(console.log(Error))
 
     }
 
     atualizaCampo(event) {
-        const motorista = { ...this.state.motorista };
-        motorista[event.target.name] = event.target.value;
-        this.setState({ motorista });
-        console.log(motorista)
+        const novo = { ...this.state[this.state.ehMotorista ? 'motorista' : 'cliente'] };
+        novo[event.target.name] = event.target.value;
+        this.setState({ [this.state.ehMotorista ? 'motorista' : 'cliente']: novo });
+        console.log(novo)
     }
 
     makeAnimation() {
@@ -123,45 +148,44 @@ export default class Cadastro extends Component {
 
         console.log(files[0].name);
 
-        if(files[0].size <= 50000){
-            console.log("MEU DEUS MEU SENHRO")
-            const motorista = { ...this.state.motorista };
+        if(files[0].size <= 50000){ // this.state[motorista]
+            const novo = { ...this.state[this.state.ehMotorista ? 'motorista' : 'cliente'] };
 
             const reader = new FileReader();
             reader.readAsDataURL(files[0]);
 
             reader.onload = () => {
                 const img = reader.result;
-                motorista.foto = img;
-                this.setState({ motorista })
-                console.log(this.state.motorista)
+                novo.foto = img;
+                this.setState({ [this.state[this.state.ehMotorista ? 'motorista' : 'cliente']]: novo })
+                console.log(this.state[this.state.ehMotorista ? 'motorista' : 'cliente'])
             }
         }
         else{
             alert('Imagem muito grande! papo')
         }
-
-        /*let files = e.target.files;
-        let reader = new FileReader();
-        reader.readAsDataURL(files[0]);
-        this.state.motorista.foto = reader.onload;
-        reader.onload=(e)=>{
-            console.warn("img datra INDSAIUDB", e.target.result);
-        }*/
     }
 
     renderForm() {
         return (
             <div className="box" onMouseEnter={this.makeAnimation}>
                 <form className="box-cadastro">
+                    <FormControlLabel
+                    className="switch"
+                    value="bottom"
+                    control={<Switch color="warning" />}
+                    label="Você é motorista?"
+                    labelPlacement="start"
+                    onChange = {e => this.mudarCadastro(e)}
+                    />
 
-                    <label>Nome do motorista: </label>
+                    <label>{this.state.ehMotorista ? 'Nome do motorista' : 'Nome do cliente'}:</label>
                     <input
                         id="nome"
                         type="text"
                         name="nome"
                         required
-                        placeholder="Nome do motorista"
+                        placeholder={this.state.ehMotorista ? 'Nome do motorista' : 'Nome do cliente'}
                         onChange={e => this.atualizaCampo(e)}
                     />
 
@@ -193,7 +217,7 @@ export default class Cadastro extends Component {
                     />
 
                     <label>Cidade:</label>
-                    <select name="idCidade" onChange={e => this.atualizaCampo(e)} value={this.state.motorista.idCidade}>
+                    <select name="idCidade" onChange={e => this.atualizaCampo(e)} value={this.state[this.state.ehMotorista ? 'motorista' : 'cliente'].idCidade}>
                         {this.state.city.lista.map((cidade) =>
                             <option
                                 key={cidade.idCidade}
@@ -220,6 +244,20 @@ export default class Cadastro extends Component {
                         onChange={e => this.atualizaCampo(e)}
                     />
 
+                    {!this.state.ehMotorista ? (
+                        <>
+                         <label>Número da casa:</label>
+                         <input
+                        type="text"
+                        name="numero"
+                        required
+                        placeholder="123"
+                        onChange={e => this.atualizaCampo(e)}
+                        />
+                        </>
+                    ) : <></>
+                    }
+
                     <label>CEP:</label>
                     <input
                         type="text"
@@ -230,7 +268,7 @@ export default class Cadastro extends Component {
                     />
 
                     <label>Sexo:</label>
-                    <select name="idSexo" onChange={e => this.atualizaCampo(e)} value={this.state.motorista.idSexo}>
+                    <select name="idSexo" onChange={e => this.atualizaCampo(e)} value={this.state[this.state.ehMotorista ? 'motorista' : 'cliente'].idSexo}>
                         {this.state.sex.lista.map((s) =>
                             <option
                                 key={s.idSexo}
