@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from 'react-router';
 
 import Main from './components/template/Main';
-import CrudAluno from './components/CrudAluno/CrudAluno';
 import Cadastro from './components/Cadastro/Cadastro';
 import Login from "./components/Login/Login";
 
