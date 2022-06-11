@@ -57,11 +57,11 @@ input[type="password"] {
     outline: none;
 }
 
-input[type="password"]{
+/*input[type="password"]{
     background-image:url(../../assets/imagens/eye.svg);
     background-size: 8%;
 	background-repeat:no-repeat; 
-}
+}*/
 
 input[type="text"]:focus{
     border: 1px solid #F2AC57;

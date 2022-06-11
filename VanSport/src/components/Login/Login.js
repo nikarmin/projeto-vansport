@@ -7,8 +7,18 @@ const title = "Login";
 
 // Arrumar isso para o BD de Motorista/Cliente
 const urlAPI = "http://localhost:5233/api/aluno";
+
 const initialState = {
-    aluno: { id: 0, ra: '', nome: '', codCurso: 0 },
+    cliente: {
+        idCliente: 0, cpf: '', nome: '', email: '', senha: '',
+        numeroCelular: '', cep: '', numero: '', foto: '',
+        idCidade: 0, idTurno: 0, idSexo: 0
+    },
+
+    idMotorista: 0, cpf: '', email: '', senha: '', nome: '',
+    numeroCelular: '', foto: '', cep: '',
+    idSexo: 0, idCidade: 0, endereco: '',
+
     lista: []
 }
 
@@ -19,10 +29,9 @@ const initialState = {
     { 'id': 4, 'ra': 44444, 'nome': 'Alice', 'codCurso': 59 },
     ];*/
 
-
 export default class Login extends Component {
     state = { ...initialState }
-
+    
     makeAnimation() {
         const box = document.getElementsByClassName('box-login');
 
@@ -40,6 +49,7 @@ export default class Login extends Component {
                         name="uemail"
                         required
                         placeholder="Digite seu email"
+                        value= "xi"
                     />
 
                     <label>Senha:</label>
@@ -48,6 +58,7 @@ export default class Login extends Component {
                         name="upassword"
                         required
                         placeholder="Digite sua senha"
+                        value="xi"
                     />
 
                     <input type="submit"></input>
