@@ -99,7 +99,6 @@ export default class Cadastro extends Component {
     salvar(e) {
         e.preventDefault();
         const novo = this.state[this.state.ehMotorista ? 'motorista' : 'cliente'];
-        console.log(novo)
 
         novo.idCidade = Number(novo.idCidade)
         novo.idSexo = Number(novo.idSexo)
@@ -108,8 +107,6 @@ export default class Cadastro extends Component {
         if (!this.state.ehMotorista) {
             novo.idTurno = Number(novo.idTurno);
         }
-
-        console.log(novo)
             
         const url = this.state.ehMotorista ? urlSocorro : urlSuicido;
 
@@ -155,10 +152,11 @@ export default class Cadastro extends Component {
             reader.readAsDataURL(files[0]);
 
             reader.onload = () => {
+                console.log("entrou")
                 const img = reader.result;
                 novo.foto = img;
                 this.setState({ [this.state[this.state.ehMotorista ? 'motorista' : 'cliente']]: novo })
-                console.log(this.state[this.state.ehMotorista ? 'motorista' : 'cliente'])
+                console.log({ [this.state[this.state.ehMotorista ? 'motorista' : 'cliente']]: novo })
             }
         }
         else{
@@ -243,6 +241,21 @@ export default class Cadastro extends Component {
                         placeholder="Seu endereço..."
                         onChange={e => this.atualizaCampo(e)}
                     />
+
+                    {!this.state.ehMotorista ? (
+                        <>
+                         <label>Turno:</label>
+                         <select name="idTurno" onChange={e => this.atualizaCampo(e)} value={this.state[this.state.ehMotorista ? 'motorista' : 'cliente'].idTurno}>
+                        {this.state.turno.lista.map((turno) =>
+                            <option
+                                key={turno.idTurno}
+                                value={turno.idTurno}
+                            >{turno.nomeTurno}</option>
+                        )}
+                        </select>
+                        </>
+                    ) : <></>
+                    }
 
                     {!this.state.ehMotorista ? (
                         <>
