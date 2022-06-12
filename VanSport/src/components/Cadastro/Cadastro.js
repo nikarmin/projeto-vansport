@@ -7,6 +7,7 @@ import Switch from '@mui/material/Switch'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import oyoAberto from '../../assets/imagens/eye.svg';
 import oyoFechado from '../../assets/imagens/eye-off.svg';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 const title = "Cadastro";
 
@@ -16,6 +17,18 @@ const urlDEPRESSIVA = "https://localhost:7082/api/sexo";
 const urlSocorro = "https://localhost:7082/api/motorista";
 const urlSuicido = "https://localhost:7082/api/cliente";
 const urlMaluquice = "https://localhost:7082/api/turno";
+
+const theme = createTheme({
+    typography: {
+      fontFamily: [
+        'Nunito',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif'
+      ].join(','),
+    }
+  });
 
 const motoristaInitialState = {
     idMotorista: 0, cpf: '', email: '', senha: '', nome: '',
@@ -145,11 +158,13 @@ export default class Cadastro extends Component {
 
         console.log(files[0].name);
 
-        if(files[0].size <= 50000){ // this.state[motorista]
+        if(files[0].size <= 100000){ // this.state[motorista]
             const novo = { ...this.state[this.state.ehMotorista ? 'motorista' : 'cliente'] };
 
             const reader = new FileReader();
             reader.readAsDataURL(files[0]);
+
+            // erro aqui, gostaram?
 
             reader.onload = () => {
                 console.log("entrou")
