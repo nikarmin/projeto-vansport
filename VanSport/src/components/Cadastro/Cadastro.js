@@ -69,7 +69,8 @@ export default class Cadastro extends Component {
         sex: { ...initialStateSex },
         ehMotorista: false,
         cliente: { ...initialState.cliente },
-        turno: { ...initialState.turno }
+        turno: { ...initialState.turno },
+        padrao: { ...initialState.lista }
     }
 
     componentDidMount() {
@@ -116,12 +117,14 @@ export default class Cadastro extends Component {
         novo.idCidade = Number(novo.idCidade)
         novo.idSexo = Number(novo.idSexo)
         novo[this.state.ehMotorista ? 'idMotorista' : 'idCliente'] = Number(novo[this.state.ehMotorista ? 'idMotorista' : 'idCliente'])
-
+       
         if (!this.state.ehMotorista) {
             novo.idTurno = Number(novo.idTurno);
         }
             
         const url = this.state.ehMotorista ? urlSocorro : urlSuicido;
+
+        console.log(url, novo)
 
         axios.post(url, novo).then(resp => {
             const lista = this.getListaAtualizada(resp.data)
@@ -139,6 +142,30 @@ export default class Cadastro extends Component {
 
     }
 
+    onFileUpload(event) {
+        const { files } = event.target;
+
+        console.log(files[0])
+
+        if(files[0].size <= 50000){ // this.state[motorista]
+            const reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+
+            reader.onload = () => {
+                console.log("entrou")
+                const novo = this.state[this.state.ehMotorista ? 'motorista' : 'cliente'];
+                novo.foto = reader.result
+
+                this.setState({ [this.state[this.state.ehMotorista ? 'motorista' : 'cliente']]: { ...novo} })
+
+            }
+            console.log(this.state.cliente)
+        }
+        else{
+            alert('Imagem muito grande! papo')
+        }
+    }
+
     atualizaCampo(event) {
         const novo = { ...this.state[this.state.ehMotorista ? 'motorista' : 'cliente'] };
         novo[event.target.name] = event.target.value;
@@ -151,34 +178,6 @@ export default class Cadastro extends Component {
 
         box[0].classList.add('withCircle')
     }
-
-    fileUpload(e){
-        
-        const { files } = e.target;
-
-        console.log(files[0].name);
-
-        if(files[0].size <= 100000){ // this.state[motorista]
-            const novo = { ...this.state[this.state.ehMotorista ? 'motorista' : 'cliente'] };
-
-            const reader = new FileReader();
-            reader.readAsDataURL(files[0]);
-
-            // erro aqui, gostaram?
-
-            reader.onload = () => {
-                console.log("entrou")
-                const img = reader.result;
-                novo.foto = img;
-                this.setState({ [this.state[this.state.ehMotorista ? 'motorista' : 'cliente']]: novo })
-                console.log({ [this.state[this.state.ehMotorista ? 'motorista' : 'cliente']]: novo })
-            }
-        }
-        else{
-            alert('Imagem muito grande! papo')
-        }
-    }
-
     renderForm() {
         return (
             <div className="box" onMouseEnter={this.makeAnimation}>
@@ -313,7 +312,7 @@ export default class Cadastro extends Component {
                         hidden
                         type="file"
                         accept="image/*"
-                        onChange={e => this.fileUpload(e)}
+                        onChange={e => this.onFileUpload(e)}
                     />
 
                     <input

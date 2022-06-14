@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj": {}
+    "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj": {}
   },
   "projects": {
-    "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj": {
+    "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj",
+        "projectUniqueName": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj",
         "projectName": "VanSport_API",
-        "projectPath": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj",
-        "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
-        "outputPath": "E:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\obj\\",
+        "projectPath": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj",
+        "packagesPath": "C:\\Users\\u21689\\.nuget\\packages\\",
+        "outputPath": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\u21689\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
