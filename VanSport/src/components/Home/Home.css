@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans&display=swap');
+
+img{
+    display: flex;
+}
+
+li{
+    text-align: start;
+}
+
+ul{
+    display: inline-grid;
+}
+
+h2{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    letter-spacing: 3px;
+}
+
+.content-obj{
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+    font-size :18px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/
+}
+
+.content-obj-def{
+    text-align: start;
+}

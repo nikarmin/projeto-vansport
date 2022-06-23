@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj": {}
+    "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\VanSport_API.csproj": {}
   },
   "projects": {
-    "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj": {
+    "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\VanSport_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj",
+        "projectUniqueName": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\VanSport_API.csproj",
         "projectName": "VanSport_API",
-        "projectPath": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\VanSport_API.csproj",
+        "projectPath": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\VanSport_API.csproj",
         "packagesPath": "C:\\Users\\u21689\\.nuget\\packages\\",
-        "outputPath": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_API\\obj\\",
+        "outputPath": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

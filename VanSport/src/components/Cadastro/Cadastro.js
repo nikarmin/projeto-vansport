@@ -5,9 +5,8 @@ import axios from 'axios';
 import Main from '../template/Main';
 import Switch from '@mui/material/Switch'
 import FormControlLabel from '@mui/material/FormControlLabel';
-import oyoAberto from '../../assets/imagens/eye.svg';
-import oyoFechado from '../../assets/imagens/eye-off.svg';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Rotas from '../../Rotas';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 const title = "Cadastro";
 
@@ -138,6 +137,8 @@ export default class Cadastro extends Component {
                     sexo: initialState.sexo,
                 }, lista
             })
+            axios.get()
+            // enviar a pessoa para uma página
         }).catch(console.log(Error))
 
     }

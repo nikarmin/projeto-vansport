@@ -49,7 +49,7 @@ export default class Login extends Component {
                         name="uemail"
                         required
                         placeholder="Digite seu email"
-                        value= "xi"
+                        value= ""
                     />
 
                     <label>Senha:</label>
@@ -58,7 +58,7 @@ export default class Login extends Component {
                         name="upassword"
                         required
                         placeholder="Digite sua senha"
-                        value="xi"
+                        value=""
                     />
 
                     <input type="submit"></input>

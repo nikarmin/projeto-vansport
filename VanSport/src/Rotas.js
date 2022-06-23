@@ -4,14 +4,17 @@ import { Route, Routes } from 'react-router';
 import Main from './components/template/Main';
 import Cadastro from './components/Cadastro/Cadastro';
 import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
+
+import imgVan from "../src/assets/imagens/van.png"
 
 export default function Rotas() {
     return (
         <Routes>
             <Route exact path='/'
                 element={
-                    <Main title="Bem Vindo!">
-                        <div> Cadastro de alunos, cursos e carômetro </div>
+                    <Main title="VanSport">
+                        <Home />
                     </Main> }
                 />
                 <Route path='/cadastro' element={<Cadastro />} />
