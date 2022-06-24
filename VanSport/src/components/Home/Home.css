@@ -12,7 +12,7 @@ ul{
     display: inline-grid;
 }
 
-h2{
+.obj-name{
     font-family: 'Nanum Gothic', sans-serif;
     font-family: 'Noto Sans', sans-serif;
     letter-spacing: 3px;

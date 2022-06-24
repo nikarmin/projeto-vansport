@@ -1,0 +1,201 @@
+.Ajuda{
+    padding-bottom: 70px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.meuGrid{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 100px;
+    padding-top: 20px;
+}
+
+.parteUm{
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.parteDois{
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#email:link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    color: #e89f05;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#email:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+h1{
+    margin-left: 100px;
+    font-weight: 500;
+}
+
+h3{
+    font-weight: 450;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+h4{
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+.btnPagamento{
+    width: 64px;
+    height: 54px;
+    margin-top: 15px;
+    background-color: #e89f05;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnPagamento img {
+    width: 50px;
+    height: 50px;
+}
+
+.btnCadastro{
+    width: 64px;
+    height: 54px;
+    margin-top: 15px;
+    background-color: #e89f05;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnCadastro img {
+    width: 50px;
+    height: 50px;
+}
+
+
+.btnChat{
+    width: 64px;
+    height: 54px;
+    margin-top: 15px;
+    background-color: #e89f05;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnChat img {
+    width: 50px;
+    height: 50px;
+}
+
+
+.btnRotas{
+    width: 64px;
+    height: 54px;
+    margin-top: 15px;
+    background-color:#e89f05;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnRotas img {
+    width: 50px;
+    height: 50px;
+}
+
+.btnInfo{
+    width: 64px;
+    height: 54px;
+    margin-top: 15px;
+    background-color: #e89f05;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnInfo img {
+    width: 50px;
+    height: 50px;
+}
+
+.btnNos{
+    width: 64px;
+    height: 54px;
+    margin-top: 15px;
+    background-color: #e89f05;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnNos img {
+    width: 50px;
+    height: 50px;
+}
+
+.Pagamento{
+    text-align: left;
+}
+
+.Cadastro{
+    text-align: left;
+}
+
+.Chat{
+    text-align: left;
+}
+
+.Rotas{
+    text-align: left;
+}
+
+.Info{
+    text-align: left;
+}
+
+
+#cadastro {
+    font-family: 'Poppins', sans-serif ;
+    font-size: 17px;
+    color: #e89f05;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#cadastro:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+}

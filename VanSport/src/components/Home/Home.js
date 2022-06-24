@@ -10,7 +10,7 @@ export default function Home() {
                 <img src={imgVan}></img>
             </div>
 
-            <h2>OBJETIVOS</h2>
+            <h2 className='obj-name'>OBJETIVOS</h2>
 
             <div className="content-obj">
 
