@@ -1,6 +1,9 @@
 import React from 'react';
 import './Home.css'
 import imgVan from "../../assets/imagens/van.png"
+import imgMotorista from "../../assets/imagens/motorista.png"
+import imgCliente from "../../assets/imagens/clientes.png"
+import { useHref } from 'react-router';
 
 export default function Home() {
     return(
@@ -8,6 +11,11 @@ export default function Home() {
 
             <div className="img-van">
                 <img src={imgVan}></img>
+                
+                <div className="img-van-text">
+                    <h3>VANSPORT</h3>
+                    <p>Organize sua van do melhor jeito!</p>
+                </div>
             </div>
 
             <h2 className='obj-name'>OBJETIVOS</h2>
@@ -29,7 +37,28 @@ export default function Home() {
                         em que o cliente (e seu responsável), possam ver a qualquer momento.
                     </p>
                 </div>
+            
+            <div className="motorista-cliente">
+                    <div className="motorista-cliente">
+                        <img src={imgMotorista} />
+
+                        <div className="motorista-cliente-text">
+                            <a href="/cadastro"><p className="title">MOTORISTA</p></a>
+                            <p>Crie uma conta como motorista, e monte seu grupo! </p>
+                        </div>
+                    </div>
+
+                    <div className="motorista-cliente">
+                        <img src={imgCliente} />
+
+                        <div className="motorista-cliente-text">
+                            <a href="/cadastro"><p className="title">CLIENTE</p></a>
+                            <p>Crie uma conta como cliente, e escolha um motorista!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     )
 }

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Main from '../template/Main';
 import Switch from '@mui/material/Switch'
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { Link } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Rotas from '../../Rotas';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -12,10 +13,10 @@ const title = "Cadastro";
 
 // Arrumar isso para o BD de Motorista/Cliente
 const urlAPI = "https://localhost:7082/api/cidade";
-const urlDEPRESSIVA = "https://localhost:7082/api/sexo";
-const urlSocorro = "https://localhost:7082/api/motorista";
-const urlSuicido = "https://localhost:7082/api/cliente";
-const urlMaluquice = "https://localhost:7082/api/turno";
+const urlSex = "https://localhost:7082/api/sexo";
+const urlMotorista = "https://localhost:7082/api/motorista";
+const urlCliente = "https://localhost:7082/api/cliente";
+const urlTurno = "https://localhost:7082/api/turno";
 
 const theme = createTheme({
     typography: {
@@ -78,11 +79,11 @@ export default class Cadastro extends Component {
             this.setState({ city: { lista: resp.data } })
         });
 
-        axios(urlDEPRESSIVA).then(resp => {
+        axios(urlSex).then(resp => {
             this.setState({ sex: { lista: resp.data } })
         });
 
-        axios.get(urlMaluquice).then(resp => {
+        axios.get(urlTurno).then(resp => {
             this.setState({ turno: {lista: resp.data} })
             console.log(resp.data)
         })
@@ -121,7 +122,7 @@ export default class Cadastro extends Component {
             novo.idTurno = Number(novo.idTurno);
         }
             
-        const url = this.state.ehMotorista ? urlSocorro : urlSuicido;
+        const url = this.state.ehMotorista ? urlMotorista : urlCliente;
 
         console.log(url, novo)
 
@@ -139,8 +140,7 @@ export default class Cadastro extends Component {
             })
             axios.get()
             // enviar a pessoa para uma página
-        }).catch(console.log(Error))
-
+        }).catch(console.log(Error));
     }
 
     onFileUpload(event) {
@@ -316,11 +316,12 @@ export default class Cadastro extends Component {
                         onChange={e => this.onFileUpload(e)}
                     />
 
-                    <input
-                    type="submit" 
-                    onClick={e => this.salvar(e) }
-                    />
-
+                        <Link to="/">
+                            <input
+                            type="submit" 
+                            onClick={e => this.salvar(e) }
+                            ></input>
+                        </Link>
                 </form>
             </div>
         )

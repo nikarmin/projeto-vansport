@@ -97,6 +97,10 @@ input#email {
     border-radius: 5px;
 }
 
+input#email:hover{
+    background-color: white;
+}
+
 input#email:focus{
     border: 2px solid #c2880d;
 }

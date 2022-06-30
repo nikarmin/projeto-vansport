@@ -1,6 +1,7 @@
 import './Footer.css';
 import React from 'react';
 
+import { Link } from 'react-router-dom';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { BsInstagram } from 'react-icons/bs';
 import { AiFillYoutube } from 'react-icons/ai';

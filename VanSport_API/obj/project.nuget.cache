@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w5xoWpTQFi8zqP6Bqlt72Hwl5llMY6p56vu/fQevDldsFJKrvsVghWv4eTrAsEfaWkcu1d5kJ/6do3TCDn2otQ==",
+  "dgSpecHash": "xpZgZUwT1zmKMXE7dvEUcL8rn8qAKAdoroG5AGJxwvc4yVuxAffk3oxXhw/urQR2/co/LzubMEoUSp5FaR98PA==",
   "success": true,
-  "projectFilePath": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\vansport_api\\VanSport_API.csproj",
+  "projectFilePath": "D:\\Cotuca\\Técnico2022\\INI35 - DeSIII - Patrícia\\VanSport\\VanSport\\VanSport_api\\VanSport_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\u21689\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\u21689\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
